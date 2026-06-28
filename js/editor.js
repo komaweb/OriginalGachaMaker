@@ -33,6 +33,13 @@ const characterQuote =
 
 const characterDescription =
     document.getElementById("characterDescription");
+const characterImage =
+    document.getElementById("characterImage");
+
+const characterPreview =
+    document.getElementById("characterPreview");
+
+let selectedImage = "";
 
 //==============================
 // 初期化
@@ -125,12 +132,22 @@ saveCharacterButton.addEventListener(
         character.description =
             characterDescription.value.trim();
 
+        character.image =
+    selectedImage;
+
         addCharacter(character);
 
         characterName.value = "";
         characterRarity.value = "1";
         characterQuote.value = "";
         characterDescription.value = "";
+        characterImage.value = "";
+
+selectedImage = "";
+
+characterPreview.src = "";
+
+characterPreview.style.display = "none";
 
         alert("キャラクターを保存しました");
 
@@ -165,3 +182,44 @@ function loadGachaSelect(){
     });
 
 }
+
+//==============================
+// 画像読み込み
+//==============================
+
+characterImage.addEventListener(
+
+    "change",
+
+    ()=>{
+
+        const file =
+            characterImage.files[0];
+
+        if(!file){
+
+            return;
+
+        }
+
+        const reader =
+            new FileReader();
+
+        reader.onload = ()=>{
+
+            selectedImage =
+                reader.result;
+
+            characterPreview.src =
+                selectedImage;
+
+            characterPreview.style.display =
+                "block";
+
+        };
+
+        reader.readAsDataURL(file);
+
+    }
+
+);
