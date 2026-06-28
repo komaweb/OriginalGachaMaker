@@ -1,10 +1,22 @@
-import "./js/models.js";
-import "./js/utils.js";
+try {
+    import("./js/models.js")
+        .then(() => import("./js/utils.js"))
+        .then(() => import("./js/storage.js"))
+        .then(() => import("./js/editor.js"))
+        .then(() => import("./js/gacha.js"))
+        .then(() => import("./js/collection.js"))
+        .then(() => import("./js/animation.js"))
+        .then(() => import("./js/app.js"))
+        .catch(error => {
 
-import "./js/storage.js";
-import "./js/editor.js";
-import "./js/gacha.js";
-import "./js/collection.js";
-import "./js/animation.js";
+            alert(error);
 
-import "./js/app.js";
+            console.error(error);
+
+        });
+
+} catch (error) {
+
+    alert(error);
+
+}
