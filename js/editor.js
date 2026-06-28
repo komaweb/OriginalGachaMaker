@@ -108,3 +108,63 @@ function loadGachaSelect(){
     });
 
 }
+
+//==============================
+// キャラクター保存
+//==============================
+
+saveCharacterButton.addEventListener(
+
+    "click",
+
+    ()=>{
+
+        if(gachaSelect.value===""){
+
+            alert("先にガチャを作成してください");
+
+            return;
+
+        }
+
+        const name =
+            characterName.value.trim();
+
+        if(name===""){
+
+            alert("名前を入力してください");
+
+            return;
+
+        }
+
+        const character =
+            createCharacter();
+
+        character.gachaId =
+            gachaSelect.value;
+
+        character.name =
+            name;
+
+        character.rarity =
+            Number(characterRarity.value);
+
+        character.quote =
+            characterQuote.value;
+
+        character.description =
+            characterDescription.value;
+
+        addCharacter(character);
+
+        characterName.value="";
+        characterQuote.value="";
+        characterDescription.value="";
+        characterRarity.value="1";
+
+        alert("保存しました");
+
+    }
+
+);
