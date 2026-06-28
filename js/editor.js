@@ -1,10 +1,10 @@
-import { createCharacter, createGacha } from "./models.js";
-
 import {
 
     getGachas,
 
-    addGacha
+    addGacha,
+
+    addCharacter
 
 } from "./storage.js";
 
