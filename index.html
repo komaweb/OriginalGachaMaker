@@ -105,30 +105,25 @@
 
                 </div>
 
-                <div class="button-group">
+   <div class="button-group">
 
-                    <button class="primary-button">
+    <button
+        id="singleGachaButton"
+        class="primary-button">
 
-                        1連ガチャ
+        1連ガチャ
 
-                    </button>
+    </button>
 
-                    <button class="gacha-button">
-
-    <img
-        src="assets/ui/button-cat.png"
-        class="button-frame"
-        alt="">
-
-    <span>
+    <button
+        id="tenGachaButton"
+        class="primary-button">
 
         10連ガチャ
 
-    </span>
+    </button>
 
-</button>
-                </div>
-
+</div>
             </div>
 
         </section>
@@ -365,6 +360,29 @@
 
         </section>
 
+<!--==============================
+    ガチャ結果
+==============================-->
+
+<div id="gachaOverlay">
+
+    <div id="resultCard">
+
+        <img
+            id="resultImage"
+            src="">
+
+        <div id="resultStars"></div>
+
+        <div id="resultName"></div>
+
+        <div id="resultQuote"></div>
+
+    </div>
+
+</div>
+
+        
     </main>
 
 </div>
