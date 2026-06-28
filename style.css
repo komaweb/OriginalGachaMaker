@@ -381,26 +381,43 @@ button{
 
 }
 
+.gacha-button::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:url("assets/ui/button-normal.png");
+
+    background-size:100% 100%;
+
+    background-repeat:no-repeat;
+
+    pointer-events:none;
+
+}
+
 .gacha-button{
 
     position:relative;
 
     width:260px;
 
-    height:80px;
+    height:84px;
 
     border:none;
 
-    background:#78a9ff;
+    background:#76AFFF;
 
-    border-radius:28px;
+    border-radius:32px;
 
     overflow:hidden;
 
     cursor:pointer;
 
 }
-
 
 .button-frame{
 
@@ -426,7 +443,7 @@ button{
 
     color:white;
 
-    font-size:24px;
+    font-size:22px;
 
     font-weight:bold;
 
@@ -434,7 +451,7 @@ button{
 
 .gacha-button:active{
 
-    transform:translateY(4px);
+    transform:translateY(3px);
 
     filter:brightness(.95);
 
