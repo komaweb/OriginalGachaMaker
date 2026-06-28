@@ -1,116 +1,96 @@
-//======================================
-// Original Gacha Maker
-// editor.js
-//======================================
+import { createCharacter, createGacha } from "./models.js";
 
-//------------------------------
-// 要素取得
-//------------------------------
+import {
 
-const seriesName = document.getElementById("seriesName");
-const seriesBanner = document.getElementById("seriesBanner");
+    getGachas,
 
-const characterSeries = document.getElementById("characterSeries");
+    addGacha
 
-const characterName = document.getElementById("characterName");
-const characterRarity = document.getElementById("characterRarity");
-
-const characterImage = document.getElementById("characterImage");
-const characterIcon = document.getElementById("characterIcon");
-
-const imagePreview = document.getElementById("imagePreview");
-const iconPreview = document.getElementById("iconPreview");
-
-const characterQuote = document.getElementById("characterQuote");
-const characterDescription = document.getElementById("characterDescription");
-
-const saveSeries = document.getElementById("saveSeries");
-const saveCharacter = document.getElementById("saveCharacter");
+} from "./storage.js";
 
 
-//======================================
-// プレビュー
-//======================================
+//==============================
+// Element
+//==============================
 
-function previewImage(fileInput, preview){
+const saveGachaButton =
+    document.getElementById("saveSeries");
 
-    const file = fileInput.files[0];
+const gachaName =
+    document.getElementById("seriesName");
 
-    if(!file){
+const gachaSelect =
+    document.getElementById("characterGacha");
 
-        preview.removeAttribute("src");
 
-        return;
+//==============================
+// 初期化
+//==============================
+
+loadGachaSelect();
+
+
+//==============================
+// ガチャ追加
+//==============================
+
+saveGachaButton.addEventListener(
+
+    "click",
+
+    ()=>{
+
+        const name =
+            gachaName.value.trim();
+
+        if(name===""){
+
+            alert("ガチャ名を入力してください");
+
+            return;
+
+        }
+
+        const gacha =
+            createGacha();
+
+        gacha.name = name;
+
+        addGacha(gacha);
+
+        gachaName.value="";
+
+        loadGachaSelect();
 
     }
 
-    const reader = new FileReader();
-
-    reader.onload = e=>{
-
-        preview.src = e.target.result;
-
-    };
-
-    reader.readAsDataURL(file);
-
-}
-
-characterImage.addEventListener("change",()=>{
-
-    previewImage(
-        characterImage,
-        imagePreview
-    );
-
-});
-
-characterIcon.addEventListener("change",()=>{
-
-    previewImage(
-        characterIcon,
-        iconPreview
-    );
-
-});
+);
 
 
-//======================================
-// 仮イベント
-//======================================
+//==============================
+// ガチャ一覧更新
+//==============================
 
-saveSeries.addEventListener("click",()=>{
+function loadGachaSelect(){
 
-    alert("シリーズ保存は次回実装します");
+    gachaSelect.innerHTML="";
 
-});
+    const gachas =
+        getGachas();
 
-saveCharacter.addEventListener("click",()=>{
+    gachas.forEach(gacha=>{
 
-    console.log({
+        const option =
+            document.createElement("option");
 
-        series:
+        option.value =
+            gacha.id;
 
-            characterSeries.value,
+        option.textContent =
+            gacha.name;
 
-        name:
-
-            characterName.value,
-
-        rarity:
-
-            characterRarity.value,
-
-        quote:
-
-            characterQuote.value,
-
-        description:
-
-            characterDescription.value
+        gachaSelect.appendChild(option);
 
     });
 
-    alert("キャラクター保存は次回実装します");
-
-});
+}
