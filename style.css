@@ -456,3 +456,203 @@ button{
     filter:brightness(.95);
 
 }
+
+/*==================================================
+    Form
+==================================================*/
+
+.label{
+
+    display:block;
+
+    margin-top:18px;
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+}
+
+.text-input{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:2px solid var(--border);
+
+    border-radius:16px;
+
+    background:white;
+
+    font-size:1rem;
+
+    transition:.2s;
+
+}
+
+.text-input:focus{
+
+    outline:none;
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(91,124,255,.15);
+
+}
+
+
+.text-area{
+
+    width:100%;
+
+    min-height:120px;
+
+    resize:vertical;
+
+    padding:14px 16px;
+
+    border:2px solid var(--border);
+
+    border-radius:16px;
+
+    background:white;
+
+    font-size:1rem;
+
+    line-height:1.6;
+
+    transition:.2s;
+
+}
+
+.text-area:focus{
+
+    outline:none;
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(91,124,255,.15);
+
+}
+
+
+/*==================================================
+    File Input
+==================================================*/
+
+input[type=file]{
+
+    width:100%;
+
+    margin-top:8px;
+
+    margin-bottom:10px;
+
+}
+
+
+/*==================================================
+    Preview
+==================================================*/
+
+.preview-image{
+
+    display:block;
+
+    width:100%;
+
+    max-height:260px;
+
+    object-fit:contain;
+
+    margin-top:10px;
+
+    margin-bottom:16px;
+
+    border-radius:18px;
+
+    background:#f7f9fc;
+
+    border:2px dashed var(--border);
+
+}
+
+
+/*==================================================
+    Full Button
+==================================================*/
+
+.full{
+
+    width:100%;
+
+    margin-top:24px;
+
+}
+
+
+/*==================================================
+    Character List
+==================================================*/
+
+.character-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+.character-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:12px;
+
+    border-radius:18px;
+
+    background:white;
+
+    box-shadow:var(--shadow);
+
+}
+
+.character-card img{
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:16px;
+
+    object-fit:cover;
+
+}
+
+.character-info{
+
+    flex:1;
+
+}
+
+.character-info h4{
+
+    margin-bottom:4px;
+
+}
+
+.character-info p{
+
+    color:var(--sub-text);
+
+    font-size:.9rem;
+
+}
