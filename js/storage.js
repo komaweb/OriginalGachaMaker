@@ -3,19 +3,19 @@
 // storage.js
 //======================================
 
+const GACHA_KEY = "ogm_gachas";
 const CHARACTER_KEY = "ogm_characters";
-const SERIES_KEY = "ogm_series";
 
 
 //======================================
-// Character
+// 共通
 //======================================
 
-export function loadCharacters(){
+function load(key){
 
-    const data = localStorage.getItem(CHARACTER_KEY);
+    const data = localStorage.getItem(key);
 
-    if(!data){
+    if(data === null){
 
         return [];
 
@@ -25,59 +25,109 @@ export function loadCharacters(){
 
 }
 
+function save(key,data){
+
+    localStorage.setItem(
+
+        key,
+
+        JSON.stringify(data)
+
+    );
+
+}
+
+
+//======================================
+// ガチャ
+//======================================
+
+export function getGachas(){
+
+    return load(GACHA_KEY);
+
+}
+
+export function saveGachas(gachas){
+
+    save(
+
+        GACHA_KEY,
+
+        gachas
+
+    );
+
+}
+
+export function addGacha(gacha){
+
+    const gachas = getGachas();
+
+    gachas.push(gacha);
+
+    saveGachas(gachas);
+
+}
+
+export function updateGacha(gacha){
+
+    const gachas = getGachas();
+
+    const index = gachas.findIndex(
+
+        g=>g.id===gacha.id
+
+    );
+
+    if(index!==-1){
+
+        gachas[index]=gacha;
+
+        saveGachas(gachas);
+
+    }
+
+}
+
+export function deleteGacha(id){
+
+    const gachas = getGachas().filter(
+
+        g=>g.id!==id
+
+    );
+
+    saveGachas(gachas);
+
+}
+
+
+//======================================
+// キャラクター
+//======================================
+
+export function getCharacters(){
+
+    return load(CHARACTER_KEY);
+
+}
 
 export function saveCharacters(characters){
 
-    localStorage.setItem(
+    save(
 
         CHARACTER_KEY,
 
-        JSON.stringify(characters)
+        characters
 
     );
 
 }
-
-
-//======================================
-// Series
-//======================================
-
-export function loadSeries(){
-
-    const data = localStorage.getItem(SERIES_KEY);
-
-    if(!data){
-
-        return [];
-
-    }
-
-    return JSON.parse(data);
-
-}
-
-
-export function saveSeries(series){
-
-    localStorage.setItem(
-
-        SERIES_KEY,
-
-        JSON.stringify(series)
-
-    );
-
-}
-
-
-//======================================
-// Add
-//======================================
 
 export function addCharacter(character){
 
-    const characters = loadCharacters();
+    const characters = getCharacters();
 
     characters.push(character);
 
@@ -85,27 +135,31 @@ export function addCharacter(character){
 
 }
 
+export function updateCharacter(character){
 
-export function addSeries(series){
+    const characters = getCharacters();
 
-    const seriesList = loadSeries();
+    const index = characters.findIndex(
 
-    seriesList.push(series);
+        c=>c.id===character.id
 
-    saveSeries(seriesList);
+    );
+
+    if(index!==-1){
+
+        characters[index]=character;
+
+        saveCharacters(characters);
+
+    }
 
 }
 
-
-//======================================
-// Delete
-//======================================
-
 export function deleteCharacter(id){
 
-    const characters = loadCharacters().filter(
+    const characters = getCharacters().filter(
 
-        c => c.id !== id
+        c=>c.id!==id
 
     );
 
@@ -114,14 +168,16 @@ export function deleteCharacter(id){
 }
 
 
-export function deleteSeries(id){
+//======================================
+// ガチャごとのキャラ取得
+//======================================
 
-    const series = loadSeries().filter(
+export function getCharactersByGacha(gachaId){
 
-        s => s.id !== id
+    return getCharacters().filter(
+
+        c=>c.gachaId===gachaId
 
     );
-
-    saveSeries(series);
 
 }
