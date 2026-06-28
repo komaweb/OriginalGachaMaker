@@ -697,3 +697,64 @@ input[type=file]{
     opacity:.9;
 
 }
+
+
+
+.gacha-card{
+
+    width:72px;
+    height:72px;
+
+    border-radius:12px;
+
+    background:#222;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+}
+
+.gacha-card img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+@keyframes poyon{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    30%{
+
+        transform:scale(1.18);
+
+    }
+
+    60%{
+
+        transform:scale(.92);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+.poyon{
+
+    animation:poyon .28s ease;
+
+}
