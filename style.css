@@ -380,3 +380,23 @@ button{
     }
 
 }
+
+.gacha-button{
+
+    position:relative;
+
+    width:260px;
+
+    height:80px;
+
+    border:none;
+
+    background:#78a9ff;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+}
