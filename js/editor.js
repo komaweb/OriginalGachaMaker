@@ -1,12 +1,23 @@
+import { createCharacter, createGacha } from "./models.js";
+
 import {
-
     getGachas,
-
     addGacha,
-
     addCharacter
-
 } from "./storage.js";
+
+//==============================
+// Element
+//==============================
+
+const saveGachaButton =
+    document.getElementById("saveSeries");
+
+const gachaName =
+    document.getElementById("seriesName");
+
+const gachaSelect =
+    document.getElementById("characterGacha");
 
 const saveCharacterButton =
     document.getElementById("saveCharacter");
@@ -24,25 +35,10 @@ const characterDescription =
     document.getElementById("characterDescription");
 
 //==============================
-// Element
-//==============================
-
-const saveGachaButton =
-    document.getElementById("saveSeries");
-
-const gachaName =
-    document.getElementById("seriesName");
-
-const gachaSelect =
-    document.getElementById("characterGacha");
-
-
-//==============================
 // 初期化
 //==============================
 
 loadGachaSelect();
-
 
 //==============================
 // ガチャ追加
@@ -76,10 +72,71 @@ saveGachaButton.addEventListener(
 
         loadGachaSelect();
 
+        alert("ガチャを作成しました");
+
     }
 
 );
 
+//==============================
+// キャラクター保存
+//==============================
+
+saveCharacterButton.addEventListener(
+
+    "click",
+
+    ()=>{
+
+        if(gachaSelect.value===""){
+
+            alert("先にガチャを作成してください");
+
+            return;
+
+        }
+
+        const name =
+            characterName.value.trim();
+
+        if(name===""){
+
+            alert("キャラクター名を入力してください");
+
+            return;
+
+        }
+
+        const character =
+            createCharacter();
+
+        character.gachaId =
+            gachaSelect.value;
+
+        character.name =
+            name;
+
+        character.rarity =
+            Number(characterRarity.value);
+
+        character.quote =
+            characterQuote.value.trim();
+
+        character.description =
+            characterDescription.value.trim();
+
+        addCharacter(character);
+
+        characterName.value = "";
+        characterRarity.value = "1";
+        characterQuote.value = "";
+        characterDescription.value = "";
+
+        alert("キャラクターを保存しました");
+
+    }
+
+);
 
 //==============================
 // ガチャ一覧更新
@@ -108,63 +165,3 @@ function loadGachaSelect(){
     });
 
 }
-
-//==============================
-// キャラクター保存
-//==============================
-
-saveCharacterButton.addEventListener(
-
-    "click",
-
-    ()=>{
-
-        if(gachaSelect.value===""){
-
-            alert("先にガチャを作成してください");
-
-            return;
-
-        }
-
-        const name =
-            characterName.value.trim();
-
-        if(name===""){
-
-            alert("名前を入力してください");
-
-            return;
-
-        }
-
-        const character =
-            createCharacter();
-
-        character.gachaId =
-            gachaSelect.value;
-
-        character.name =
-            name;
-
-        character.rarity =
-            Number(characterRarity.value);
-
-        character.quote =
-            characterQuote.value;
-
-        character.description =
-            characterDescription.value;
-
-        addCharacter(character);
-
-        characterName.value="";
-        characterQuote.value="";
-        characterDescription.value="";
-        characterRarity.value="1";
-
-        alert("保存しました");
-
-    }
-
-);
