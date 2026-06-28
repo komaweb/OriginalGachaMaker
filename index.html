@@ -1,113 +1,244 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Original Gacha Maker</title>
 
-  <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Original Gacha Maker</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div id="app">
 
-<header class="header">
-    <h1>Original Gacha Maker</h1>
-</header>
+    <!--==============================
+        Header
+    ==============================-->
 
-<nav class="tab-bar">
+    <header class="header">
 
-<button class="tab-button active" data-page="home">
-ホーム
-</button>
+        <h1>Original Gacha Maker</h1>
 
-<button class="tab-button" data-page="gacha">
-ガチャ
-</button>
+    </header>
 
-<button class="tab-button" data-page="collection">
-図鑑
-</button>
 
-<button class="tab-button" data-page="editor">
-編集
-</button>
+    <!--==============================
+        Tab
+    ==============================-->
 
-<button class="tab-button" data-page="settings">
-設定
-</button>
+    <nav class="tab-bar">
 
-</nav>
+        <button class="tab-button active"
+                data-page="home">
 
-<main>
+            ホーム
 
-<section id="home" class="page active">
+        </button>
 
-<div class="card">
+        <button class="tab-button"
+                data-page="gacha">
 
-<h2>ホーム</h2>
+            ガチャ
 
-<p>ようこそ！</p>
+        </button>
 
-<p>ここからガチャを引いたり図鑑を見たりできます。</p>
+        <button class="tab-button"
+                data-page="collection">
 
-</div>
+            図鑑
 
-</section>
+        </button>
 
-<section id="gacha" class="page">
+        <button class="tab-button"
+                data-page="editor">
 
-<div class="card">
+            編集
 
-<h2>ガチャ</h2>
+        </button>
 
-<p>ガチャ画面はここ！</p>
+        <button class="tab-button"
+                data-page="settings">
 
-</div>
+            設定
 
-</section>
+        </button>
 
-<section id="collection" class="page">
+    </nav>
 
-<div class="card">
 
-<h2>図鑑</h2>
 
-<p>キャラクター一覧を表示します。</p>
+    <!--==============================
+        Main
+    ==============================-->
 
-</div>
+    <main>
 
-</section>
+        <!--==========================
+            Home
+        ===========================-->
 
-<section id="editor" class="page">
+        <section id="home"
+                 class="page active">
 
-<div class="card">
+            <div class="panel hero">
 
-<h2>編集</h2>
+                <h2>Original Gacha Maker</h2>
 
-<p>キャラクターやガチャを追加します。</p>
+                <p>
+                    オリジナルキャラクターで遊べる
+                    ガチャメーカー
+                </p>
 
-</div>
+            </div>
 
-</section>
 
-<section id="settings" class="page">
+            <div class="panel">
 
-<div class="card">
+                <h3>開催中のガチャ</h3>
 
-<h2>設定</h2>
+                <div class="banner">
 
-<p>データの保存・読み込みなど。</p>
+                    ガチャバナー
 
-</div>
+                </div>
 
-</section>
+                <div class="button-group">
 
-</main>
+                    <button class="primary-button">
+
+                        1連ガチャ
+
+                    </button>
+
+                    <button class="primary-button">
+
+                        10連ガチャ
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!--==========================
+            Gacha
+        ===========================-->
+
+        <section id="gacha"
+                 class="page">
+
+            <div class="panel">
+
+                <h2>ガチャ</h2>
+
+                <div class="banner">
+
+                    ガチャ演出エリア
+
+                </div>
+
+                <div class="button-group">
+
+                    <button class="primary-button">
+
+                        1連
+
+                    </button>
+
+                    <button class="primary-button">
+
+                        10連
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!--==========================
+            Collection
+        ===========================-->
+
+        <section id="collection"
+                 class="page">
+
+            <div class="panel">
+
+                <h2>図鑑</h2>
+
+                <p>
+
+                    キャラクター一覧
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!--==========================
+            Editor
+        ===========================-->
+
+        <section id="editor"
+                 class="page">
+
+            <div class="panel">
+
+                <h2>編集</h2>
+
+                <p>
+
+                    キャラクター追加・編集
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!--==========================
+            Settings
+        ===========================-->
+
+        <section id="settings"
+                 class="page">
+
+            <div class="panel">
+
+                <h2>設定</h2>
+
+                <p>
+
+                    データの保存・読み込み
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
 
 </div>
 
 <script type="module" src="script.js"></script>
 
 </body>
+
 </html>
