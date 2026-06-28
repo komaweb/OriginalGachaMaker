@@ -8,6 +8,20 @@ import {
 
 } from "./storage.js";
 
+const saveCharacterButton =
+    document.getElementById("saveCharacter");
+
+const characterName =
+    document.getElementById("characterName");
+
+const characterRarity =
+    document.getElementById("characterRarity");
+
+const characterQuote =
+    document.getElementById("characterQuote");
+
+const characterDescription =
+    document.getElementById("characterDescription");
 
 //==============================
 // Element
