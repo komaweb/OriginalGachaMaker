@@ -197,27 +197,181 @@
 
 
 
-        <!--==========================
-            Editor
-        ===========================-->
+     <!--==========================
+    Editor
+===========================-->
 
-        <section id="editor"
-                 class="page">
+<section id="editor"
+         class="page">
 
-            <div class="panel">
+    <!-- ガチャシリーズ -->
 
-                <h2>編集</h2>
+    <div class="panel">
 
-                <p>
+        <h2>ガチャシリーズ</h2>
 
-                    キャラクター追加・編集
+        <label class="label">
 
-                </p>
+            シリーズ名
 
-            </div>
+        </label>
 
-        </section>
+        <input
+            id="seriesName"
+            class="text-input"
+            type="text"
+            placeholder="例：ゆるどうぶつ">
 
+        <label class="label">
+
+            バナー画像
+
+        </label>
+
+        <input
+            id="seriesBanner"
+            type="file"
+            accept="image/*">
+
+        <button
+            id="saveSeries"
+            class="primary-button full">
+
+            シリーズを保存
+
+        </button>
+
+    </div>
+
+
+
+    <!-- キャラクター -->
+
+    <div class="panel">
+
+        <h2>キャラクター</h2>
+
+        <label class="label">
+
+            所属シリーズ
+
+        </label>
+
+        <select
+            id="characterSeries"
+            class="text-input">
+
+        </select>
+
+
+
+        <label class="label">
+
+            名前
+
+        </label>
+
+        <input
+            id="characterName"
+            class="text-input"
+            type="text"
+            placeholder="しろねこ">
+
+
+
+        <label class="label">
+
+            レアリティ
+
+        </label>
+
+        <select
+            id="characterRarity"
+            class="text-input">
+
+            <option value="1">★☆☆☆☆</option>
+            <option value="2">★★☆☆☆</option>
+            <option value="3">★★★☆☆</option>
+            <option value="4">★★★★☆</option>
+            <option value="5">★★★★★</option>
+
+        </select>
+
+
+
+        <label class="label">
+
+            キャラクター画像
+
+        </label>
+
+        <input
+            id="characterImage"
+            type="file"
+            accept="image/*">
+
+        <img
+            id="imagePreview"
+            class="preview-image">
+
+
+
+        <label class="label">
+
+            アイコン画像
+
+        </label>
+
+        <input
+            id="characterIcon"
+            type="file"
+            accept="image/*">
+
+        <img
+            id="iconPreview"
+            class="preview-image">
+
+
+
+        <label class="label">
+
+            ガチャ演出セリフ
+
+        </label>
+
+        <input
+            id="characterQuote"
+            class="text-input"
+            type="text"
+            placeholder="よろしくね！">
+
+
+
+        <label class="label">
+
+            説明
+
+        </label>
+
+        <textarea
+            id="characterDescription"
+            class="text-area"
+            rows="5"
+            placeholder="キャラクター説明を書いてください。"></textarea>
+
+
+
+        <button
+            id="saveCharacter"
+            class="primary-button full">
+
+            キャラクターを保存
+
+        </button>
+
+    </div>
+
+</section>
 
 
         <!--==========================
