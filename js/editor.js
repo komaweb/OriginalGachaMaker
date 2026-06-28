@@ -50,6 +50,7 @@ let selectedImage = "";
 //==============================
 
 loadGachaSelect();
+renderCharacterList();
 
 //==============================
 // ガチャ追加
