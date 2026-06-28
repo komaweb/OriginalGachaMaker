@@ -39,6 +39,9 @@ const characterImage =
 
 const characterPreview =
     document.getElementById("characterPreview");
+const characterList =
+    document.getElementById("characterList");
+
 
 let selectedImage = "";
 
@@ -79,6 +82,7 @@ saveGachaButton.addEventListener(
         gachaName.value="";
 
         loadGachaSelect();
+        renderCharacterList();
 
         alert("ガチャを作成しました");
 
@@ -149,7 +153,7 @@ selectedImage = "";
 characterPreview.src = "";
 
 characterPreview.style.display = "none";
-
+renderCharacterList();
         alert("キャラクターを保存しました");
 
     }
@@ -224,3 +228,73 @@ characterImage.addEventListener(
     }
 
 );
+
+
+
+//==============================
+// キャラクター一覧
+//==============================
+
+function renderCharacterList(){
+
+    characterList.innerHTML = "";
+
+    const characters = getCharacters();
+
+    if(characters.length===0){
+
+        characterList.innerHTML =
+            "<p>まだキャラクターはいません。</p>";
+
+        return;
+
+    }
+
+    characters.forEach(character=>{
+
+        const card =
+            document.createElement("div");
+
+        card.className = "character-card";
+
+        const stars =
+            "★".repeat(character.rarity);
+
+        card.innerHTML = `
+            <div style="display:flex;gap:12px;align-items:center;">
+
+                ${
+                    character.image
+                    ? `<img src="${character.image}"
+                        style="
+                        width:72px;
+                        height:72px;
+                        object-fit:cover;
+                        border-radius:12px;">`
+                    : ""
+                }
+
+                <div>
+
+                    <div style="font-size:20px;">
+                        ${stars}
+                    </div>
+
+                    <div style="font-weight:bold;">
+                        ${character.name}
+                    </div>
+
+                    <div style="color:#666;font-size:14px;">
+                        ${character.quote ?? ""}
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+
+        characterList.appendChild(card);
+
+    });
+
+}
