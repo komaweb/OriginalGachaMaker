@@ -3,7 +3,8 @@ import { createCharacter, createGacha } from "./models.js";
 import {
     getGachas,
     addGacha,
-    addCharacter
+    addCharacter,
+    getCharacters
 } from "./storage.js";
 
 //==============================
