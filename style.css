@@ -609,17 +609,15 @@ input[type=file]{
 
 .character-card{
 
-    display:flex;
+    background:white;
 
-    align-items:center;
-
-    gap:14px;
-
-    padding:12px;
+    border:1px solid #ddd;
 
     border-radius:18px;
 
-    background:white;
+    padding:14px;
+
+    margin-top:12px;
 
     box-shadow:var(--shadow);
 
@@ -659,19 +657,7 @@ input[type=file]{
 
 
 
-.character-card{
 
-    background:white;
-
-    border:1px solid #ddd;
-
-    border-radius:14px;
-
-    padding:12px;
-
-    margin-top:12px;
-
-}
 
 
 
