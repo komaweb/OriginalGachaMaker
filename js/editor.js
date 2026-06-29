@@ -320,6 +320,18 @@ function renderCharacterList(){
         const stars =
             "★".repeat(character.rarity);
 
+const gacha =
+    getGachas().find(
+
+        g=>g.id===character.gachaId
+
+    );
+
+const gachaName =
+    gacha
+        ? gacha.name
+        : "未所属";
+        
         card.innerHTML = `
 
             <div
