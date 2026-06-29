@@ -60,7 +60,8 @@ async function startTenGacha(){
     latestResults = results;
 
     await showPresentAnimation(results);
-
+    document.getElementById("gachaAnimation").style.display =
+    "none";
     showResult(results[9]);
 
 }
@@ -153,6 +154,8 @@ window.addEventListener("DOMContentLoaded",()=>{
         closeButton.addEventListener("click",()=>{
 
             closeAnimation();
+            document.getElementById("gachaAnimation").style.display =
+    "";
 
         });
 
