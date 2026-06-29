@@ -1050,9 +1050,7 @@ Gacha
 
     max-width:420px;
 
-    max-height:85vh;
-
-    overflow-y:auto;
+    height:85vh;
 
     background:white;
 
@@ -1061,6 +1059,8 @@ Gacha
     padding:24px;
 
     box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+    flex-direction:column;
 
 }
 
@@ -1141,6 +1141,8 @@ Gacha
     flex:1;
 
     overflow-y:auto;
+
+    min-height:0;
 
     padding-right:4px;
 
