@@ -183,3 +183,28 @@ export function getCharactersByGacha(gachaId){
     );
 
 }
+
+
+//======================================
+// 現在のガチャ
+//======================================
+
+export function getCurrentGacha(){
+
+    return localStorage.getItem(
+        CURRENT_GACHA_KEY
+    );
+
+}
+
+export function setCurrentGacha(id){
+
+    localStorage.setItem(
+
+        CURRENT_GACHA_KEY,
+
+        id
+
+    );
+
+}
