@@ -931,7 +931,10 @@ Gacha
 
     background:white;
 
-    transform:scale(1.12);
+    transform:translateY(-6px) scale(1.03);
+
+    box-shadow:
+        0 14px 28px rgba(0,0,0,.35);
 
 }
 
