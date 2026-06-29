@@ -28,7 +28,7 @@ export function createCharacter() {
 
         quote: "",
 
-        description: ""
+        description: "",
             
         obtained: false
 
