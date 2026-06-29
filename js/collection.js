@@ -4,9 +4,7 @@ import {
 
     getGachas
 
-} from "./storage.js";
-
-renderCollection();
+} from "./storage.js"
 
 function renderCollection(){
 
@@ -87,3 +85,9 @@ function renderCollection(){
     });
 
 }
+
+export {
+
+    renderCollection
+
+};
