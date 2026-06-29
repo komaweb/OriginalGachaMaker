@@ -555,7 +555,7 @@ deleteButton.addEventListener(
 
         if(!confirm(
 
-            `「${gacha.name}」を削除しますか？`
+            `「${gacha.name}」を削除しますか？\n\n所属キャラクターも削除されます。`
 
         )){
 
@@ -563,11 +563,26 @@ deleteButton.addEventListener(
 
         }
 
+        deleteCharactersByGacha(gacha.id);
+
         deleteGacha(gacha.id);
 
-        renderGachaList();
+        const gachas =
+            getGachas();
+
+        if(gachas.length>0){
+
+            setCurrentGacha(
+                gachas[0].id
+            );
+
+        }
 
         loadGachaSelect();
+
+        renderCharacterList();
+
+        renderGachaList();
 
     }
 
