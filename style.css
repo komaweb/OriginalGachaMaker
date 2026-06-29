@@ -1034,3 +1034,101 @@ Gacha
     }
 
 }
+
+
+
+/*==================================
+    Result Card
+==================================*/
+
+#resultCard{
+
+    display:none;
+
+    width:100%;
+
+    max-width:420px;
+
+    max-height:85vh;
+
+    overflow-y:auto;
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:24px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+}
+
+#resultImage{
+
+    display:block;
+
+    width:100%;
+
+    max-height:60vh;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    background:#f5f5f5;
+
+}
+
+#resultName{
+
+    margin-top:18px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+
+#resultStars{
+
+    margin-top:8px;
+
+    text-align:center;
+
+    font-size:26px;
+
+    color:#ffbf00;
+
+}
+
+#resultQuote{
+
+    margin-top:18px;
+
+    padding:16px;
+
+    background:#f7f8fb;
+
+    border-radius:16px;
+
+    font-style:italic;
+
+    text-align:center;
+
+    line-height:1.6;
+
+}
+
+#resultDescription{
+
+    margin-top:20px;
+
+    white-space:pre-wrap;
+
+    line-height:1.8;
+
+    color:#444;
+
+}
