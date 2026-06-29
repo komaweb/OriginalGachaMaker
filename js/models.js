@@ -22,9 +22,9 @@ export function createCharacter() {
 
         rarity: 1,
 
-        image: "",
+        image: "",          // アイコン
 
-        icon: "",
+        detailImage: "",    // 詳細イラスト
 
         quote: "",
 
@@ -33,7 +33,6 @@ export function createCharacter() {
     };
 
 }
-
 
 //======================================
 // Gacha
