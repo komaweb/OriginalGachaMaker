@@ -86,20 +86,24 @@ saveGachaButton.addEventListener(
         const gacha =
             createGacha();
 
-        gacha.name = name;
+        gacha.name =
+            name;
+
+        gacha.banner =
+            selectedBanner;
 
         addGacha(gacha);
-        setCurrentGacha(gacha.id);
-        gacha.banner =
-    selectedBanner;
 
+        setCurrentGacha(gacha.id);
 
         selectedBanner = "";
 
-seriesBanner.value = "";
-        gachaName.value="";
+        seriesBanner.value = "";
+
+        gachaName.value = "";
 
         loadGachaSelect();
+
         renderCharacterList();
 
         alert("ガチャを作成しました");
