@@ -9,30 +9,50 @@ import {
 } from "./animation.js";
 
 import {
-    getCharacters
+    getCharacters,
+    getCurrentGacha
 } from "./storage.js";
 
 
 function randomCharacter(){
 
-    const characters = getCharacters();
+    const currentGacha =
+        getCurrentGacha();
+
+    let characters =
+        getCharacters();
+
+    if(currentGacha){
+
+        characters = characters.filter(
+
+            character=>
+
+                character.gachaId===currentGacha
+
+        );
+
+    }
 
     if(characters.length===0){
 
-        alert("キャラクターが登録されていません。");
+        alert("このガチャにはキャラクターが登録されていません。");
 
         return null;
 
     }
 
     return characters[
+
         Math.floor(
+
             Math.random()*characters.length
+
         )
+
     ];
 
 }
-
 function createTenResult(){
 
     const result = [];
