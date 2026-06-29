@@ -943,7 +943,9 @@ Gacha
 
     object-fit:cover;
 
-    border-radius:20px;
+    display:block;
+
+    border-radius:inherit;
 
 }
 
