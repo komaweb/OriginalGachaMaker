@@ -1,97 +1,262 @@
 //======================================
 // Original Gacha Maker
 // storage.js
-// IndexedDB Version
 //======================================
 
-const DB_NAME = "OriginalGachaMaker";
-
-const DB_VERSION = 1;
-
+const GACHA_KEY = "ogm_gachas";
 const CURRENT_GACHA_KEY =
     "ogm_current_gacha";
+const CHARACTER_KEY = "ogm_characters";
 
-let db = null;
 
-export async function openDatabase(){
+//======================================
+// 共通
+//======================================
 
-    if(db){
+function load(key){
 
-        return db;
+    const data = localStorage.getItem(key);
+
+    if(data === null){
+
+        return [];
 
     }
 
-    return new Promise((resolve,reject)=>{
+    return JSON.parse(data);
 
-        const request =
-            indexedDB.open(
+}
 
-                DB_NAME,
+function save(key,data){
 
-                DB_VERSION
+    try{
 
-            );
+        localStorage.setItem(
 
-        request.onupgradeneeded = ()=>{
+            key,
 
-            db = request.result;
+            JSON.stringify(data)
 
-            if(
+        );
 
-                !db.objectStoreNames.contains("gachas")
+    }catch(error){
 
-            ){
+        alert(error.name);
 
-                db.createObjectStore(
+        console.error(error);
 
-                    "gachas",
+    }
 
-                    {
+}
 
-                        keyPath:"id"
+//======================================
+// ガチャ
+//======================================
 
-                    }
+export function getGachas(){
 
-                );
+    return load(GACHA_KEY);
 
-            }
+}
 
-            if(
+export function saveGachas(gachas){
 
-                !db.objectStoreNames.contains("characters")
+    save(
 
-            ){
+        GACHA_KEY,
 
-                db.createObjectStore(
+        gachas
 
-                    "characters",
+    );
 
-                    {
+}
 
-                        keyPath:"id"
+export function addGacha(gacha){
 
-                    }
+    const gachas = getGachas();
 
-                );
+    gachas.push(gacha);
 
-            }
+    saveGachas(gachas);
 
-        };
+}
 
-        request.onsuccess = ()=>{
+export function updateGacha(gacha){
 
-            db = request.result;
+    const gachas = getGachas();
 
-            resolve(db);
+    const index = gachas.findIndex(
 
-        };
+        g=>g.id===gacha.id
 
-        request.onerror = ()=>{
+    );
 
-            reject(request.error);
+    if(index!==-1){
 
-        };
+        gachas[index]=gacha;
 
-    });
+        saveGachas(gachas);
+
+    }
+
+}
+
+export function deleteGacha(id){
+
+    const gachas = getGachas().filter(
+
+        g=>g.id!==id
+
+    );
+
+    saveGachas(gachas);
+
+}
+
+
+//======================================
+// キャラクター
+//======================================
+
+export function getCharacters(){
+
+    return load(CHARACTER_KEY);
+
+}
+
+export function saveCharacters(characters){
+
+    save(
+
+        CHARACTER_KEY,
+
+        characters
+
+    );
+
+}
+
+export function addCharacter(character){
+
+    const characters = getCharacters();
+
+    characters.push(character);
+
+    saveCharacters(characters);
+
+}
+
+export function updateCharacter(character){
+
+    const characters = getCharacters();
+
+    const index = characters.findIndex(
+
+        c=>c.id===character.id
+
+    );
+
+    if(index!==-1){
+
+        characters[index]=character;
+
+        saveCharacters(characters);
+
+    }
+
+}
+
+export function deleteCharacter(id){
+
+    const characters = getCharacters().filter(
+
+        c=>c.id!==id
+
+    );
+
+    saveCharacters(characters);
+
+}
+
+
+//======================================
+// ガチャごとのキャラ取得
+//======================================
+
+export function getCharactersByGacha(gachaId){
+
+    return getCharacters().filter(
+
+        c=>c.gachaId===gachaId
+
+    );
+
+}
+
+
+//======================================
+// 現在のガチャ
+//======================================
+
+export function getCurrentGacha(){
+
+    return localStorage.getItem(
+        CURRENT_GACHA_KEY
+    );
+
+}
+
+export function setCurrentGacha(id){
+
+    localStorage.setItem(
+
+        CURRENT_GACHA_KEY,
+
+        id
+
+    );
+
+}
+
+//======================================
+// ガチャ削除時に所属キャラも削除
+//======================================
+
+export function deleteCharactersByGacha(gachaId){
+
+    const characters =
+        getCharacters().filter(
+
+            character=>
+
+                character.gachaId!==gachaId
+
+        );
+
+    saveCharacters(characters);
+
+}
+
+
+
+export function saveCharacter(character){
+
+    const characters =
+        getCharacters();
+
+    const index =
+        characters.findIndex(
+
+            c=>c.id===character.id
+
+        );
+
+    if(index!==-1){
+
+        characters[index]=character;
+
+        saveCharacters(characters);
+
+    }
 
 }
