@@ -22,6 +22,11 @@ buttons.forEach(button => {
         document
             .getElementById(target)
             .classList.add("active");
+        if(target==="home"){
+
+    renderHomeGachas();
+
+}
 
     });
 
