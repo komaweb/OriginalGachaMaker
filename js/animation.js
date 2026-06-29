@@ -91,7 +91,11 @@ for(let i=0;i<results.length;i++){
 
         box.classList.remove("open");
 
-        box.innerHTML="🎁";
+box.innerHTML = `
+    <img
+        src="assets/ui/present.png"
+        class="present-image">
+`;
 
     });
 
