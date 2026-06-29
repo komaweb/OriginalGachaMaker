@@ -29,41 +29,62 @@ buttons.forEach(button => {
 console.log("Original Gacha Maker 起動");
 renderHomeGachas();
 
-function updateHomeBanner(){
+function renderHomeGachas(){
 
-    const banner =
-        document.getElementById("homeBannerImage");
+    const homeList =
+        document.getElementById("homeGachaList");
 
-    const title =
-        document.getElementById("homeBannerTitle");
+    homeList.innerHTML = "";
 
-    const currentId =
-        getCurrentGacha();
+    const gachas =
+        getGachas();
 
-    const gacha =
-        getGachas().find(
+    gachas.forEach(gacha=>{
 
-            g=>g.id===currentId
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "home-gacha-card";
+
+        card.innerHTML = `
+
+            ${
+                gacha.banner
+                ? `
+                <img
+                    src="${gacha.banner}">
+                `
+                : ""
+            }
+
+            <div
+                class="home-gacha-title">
+
+                ${gacha.name}
+
+            </div>
+
+        `;
+
+        card.addEventListener(
+
+            "click",
+
+            ()=>{
+
+                setCurrentGacha(gacha.id);
+
+                document
+                    .querySelector('[data-page="gacha"]')
+                    .click();
+
+            }
 
         );
 
-    if(!gacha){
+        homeList.appendChild(card);
 
-        return;
-
-    }
-
-    title.textContent =
-        gacha.name;
-
-    if(gacha.banner){
-
-        banner.src =
-            gacha.banner;
-
-        banner.style.display =
-            "block";
-
-    }
+    });
 
 }
