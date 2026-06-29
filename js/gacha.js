@@ -10,7 +10,8 @@ import {
 
 import {
     getCharacters,
-    getCurrentGacha
+    getCurrentGacha,
+    saveCharacter
 } from "./storage.js";
 
 
