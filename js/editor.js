@@ -132,7 +132,7 @@ saveCharacterButton.addEventListener(
 
         alert("保存ボタン押された");
 
-        ...
+        
     ()=>{
 
         if(gachaSelect.value===""){
