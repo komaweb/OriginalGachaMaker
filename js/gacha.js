@@ -112,6 +112,10 @@ let latestResults = [];
 
 function showResult(character){
 
+document.getElementById(
+    "gachaAnimation"
+).style.display = "none";
+    
     document.getElementById("resultImage").src =
         character.detailImage || character.image;
 
@@ -209,7 +213,11 @@ if(singleButton){
 
         closeButton.addEventListener("click",()=>{
 
-            closeAnimation();
+document.getElementById(
+    "gachaAnimation"
+).style.display = "";
+
+closeAnimation();
             document.getElementById("gachaAnimation").style.display =
     "";
 
