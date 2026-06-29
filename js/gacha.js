@@ -112,6 +112,14 @@ async function startTenGacha(){
 let latestResults = [];
 
 function showResult(character){
+if(!character.obtained){
+
+    character.obtained = true;
+
+    saveCharacter(character);
+
+}
+    
 
 document.getElementById(
     "gachaAnimation"
