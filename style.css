@@ -898,7 +898,8 @@ Gacha
 
 .present-box{
 
-    aspect-ratio:1;
+    width:56px;
+    height:56px;
 
     border-radius:20px;
 
@@ -926,6 +927,7 @@ Gacha
         opacity .25s;
 
 }
+
 
 .present-box.open{
 
