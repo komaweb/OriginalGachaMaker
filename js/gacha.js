@@ -73,32 +73,40 @@ function createTenResult(){
 
 async function startTenGacha(){
 
-    const results=createTenResult();
+const results=createTenResult();
 
-    await showPresentAnimation(results);
+latestResults = results;
 
-    showResult(results[9]);
+await showPresentAnimation(results);
+
+showResult(results[9]);
 
 }
 
+let latestResults = [];
+
 function showResult(character){
 
-    document.getElementById("resultImage").src=
-        character.image;
+    document.getElementById("resultImage").src =
+        character.detailImage || character.image;
 
-    document.getElementById("resultName").textContent=
+    document.getElementById("resultName").textContent =
         character.name;
 
-    document.getElementById("resultQuote").textContent=
+    document.getElementById("resultQuote").textContent =
         character.quote;
 
-    document.getElementById("resultStars").textContent=
-        "★".repeat(character.stars);
+    document.getElementById("resultDescription").textContent =
+        character.description;
 
-const resultCard = document.getElementById("resultCard");
+    document.getElementById("resultStars").textContent =
+        "★".repeat(character.rarity);
 
-resultCard.style.display = "flex";
-    
+    document.getElementById("resultCard").style.display =
+        "flex";
+
+    renderResultIcons(character);
+
 }
 
 window.addEventListener("DOMContentLoaded",()=>{
