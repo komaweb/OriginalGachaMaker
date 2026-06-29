@@ -43,6 +43,7 @@ const characterList =
 
 
 let selectedImage = "";
+let selectedDetailImage = "";
 
 //==============================
 // 初期化
@@ -140,6 +141,9 @@ saveCharacterButton.addEventListener(
         character.image =
     selectedImage;
 
+character.detailImage =
+    selectedDetailImage;
+        
         addCharacter(character);
 
         characterName.value = "";
@@ -149,10 +153,15 @@ saveCharacterButton.addEventListener(
         characterImage.value = "";
 
 selectedImage = "";
+selectedDetailImage = "";
 
 characterPreview.src = "";
-
 characterPreview.style.display = "none";
+
+detailPreview.src = "";
+detailPreview.style.display = "none";
+
+        
 renderCharacterList();
         alert("キャラクターを保存しました");
 
@@ -229,7 +238,43 @@ characterImage.addEventListener(
 
 );
 
+const detailImageInput =
+    document.getElementById("characterDetailImage");
 
+const detailPreview =
+    document.getElementById("characterDetailPreview");
+
+if(detailImageInput){
+
+    detailImageInput.addEventListener("change",()=>{
+
+        const file = detailImageInput.files[0];
+
+        if(!file){
+
+            return;
+
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = e=>{
+
+    selectedDetailImage = e.target.result;
+
+    detailPreview.src = selectedDetailImage;
+
+    detailPreview.style.display = "block";
+
+};
+
+        
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
 
 //==============================
 // キャラクター一覧
