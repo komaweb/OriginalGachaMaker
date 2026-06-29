@@ -116,16 +116,17 @@ window.addEventListener("DOMContentLoaded",()=>{
 
     }
 
-    document
-        .getElementById("gachaOverlay")
-        .addEventListener("click",e=>{
+    const closeButton =
+        document.getElementById("closeResultButton");
 
-            if(e.target.id==="gachaOverlay"){
+    if(closeButton){
 
-                closeAnimation();
+        closeButton.addEventListener("click",()=>{
 
-            }
+            closeAnimation();
 
         });
+
+    }
 
 });
