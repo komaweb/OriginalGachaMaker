@@ -93,6 +93,10 @@ saveGachaButton.addEventListener(
         gacha.banner =
     selectedBanner;
 
+
+        selectedBanner = "";
+
+seriesBanner.value = "";
         gachaName.value="";
 
         loadGachaSelect();
@@ -220,6 +224,37 @@ function loadGachaSelect(){
 //==============================
 // 画像読み込み
 //==============================
+seriesBanner.addEventListener(
+
+    "change",
+
+    ()=>{
+
+        const file =
+            seriesBanner.files[0];
+
+        if(!file){
+
+            return;
+
+        }
+
+        const reader =
+            new FileReader();
+
+        reader.onload = ()=>{
+
+            selectedBanner =
+                reader.result;
+
+        };
+
+        reader.readAsDataURL(file);
+
+    }
+
+);
+
 
 characterImage.addEventListener(
 
