@@ -342,7 +342,40 @@ function renderCharacterList(){
 
             </div>
         `;
+const deleteButton =
+    document.createElement("button");
 
+deleteButton.className =
+    "danger-button";
+
+deleteButton.textContent =
+    "削除";
+
+deleteButton.addEventListener(
+
+    "click",
+
+    ()=>{
+
+        if(!confirm(
+
+            `「${character.name}」を削除しますか？`
+
+        )){
+
+            return;
+
+        }
+
+        deleteCharacter(character.id);
+
+        renderCharacterList();
+
+    }
+
+);
+
+card.appendChild(deleteButton);
         characterList.appendChild(card);
 
     });
