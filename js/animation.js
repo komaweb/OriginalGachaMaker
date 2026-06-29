@@ -55,6 +55,18 @@ export async function showPresentAnimation(results){
 
     const boxes = document.querySelectorAll(".present-box");
 
+    boxes.forEach(box=>{
+
+    box.style.display = "none";
+
+});
+
+for(let i=0;i<results.length;i++){
+
+    boxes[i].style.display = "flex";
+
+}
+
     const resultCard = document.getElementById("resultCard");
 
     overlay.classList.remove("hidden");
@@ -71,7 +83,7 @@ export async function showPresentAnimation(results){
     });
 
     // 1個ずつ開く
-    for(let i=0;i<boxes.length;i++){
+    for(let i=0;i<results.length;i++){
 
         const box=boxes[i];
 
