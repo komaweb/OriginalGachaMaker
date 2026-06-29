@@ -2,7 +2,6 @@
 // Original Gacha Maker
 // gacha.js
 //======================================
-
 import {
     showPresentAnimation,
     closeAnimation
@@ -111,7 +110,8 @@ async function startTenGacha(){
 
 let latestResults = [];
 
-function showResult(character){
+export function showResult(character){
+    
 if(!character.obtained){
 
     character.obtained = true;
@@ -144,6 +144,22 @@ document.getElementById(
         "flex";
 
     renderResultIcons(character);
+
+}
+export function showCollectionCharacter(character){
+
+    latestResults = [character];
+
+    document
+        .getElementById("gachaOverlay")
+        .classList
+        .remove("hidden");
+
+    document.getElementById(
+        "gachaAnimation"
+    ).style.display = "none";
+
+    showResult(character);
 
 }
 
