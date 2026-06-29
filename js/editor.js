@@ -49,6 +49,8 @@ const characterPreview =
     document.getElementById("characterPreview");
 const characterList =
     document.getElementById("characterList");
+const gachaList =
+    document.getElementById("gachaList");
 
 
 let selectedImage = "";
@@ -60,7 +62,10 @@ let selectedBanner = "";
 //==============================
 
 loadGachaSelect();
+
 renderCharacterList();
+
+renderGachaList();
 
 //==============================
 // ガチャ追加
@@ -105,6 +110,7 @@ saveGachaButton.addEventListener(
         loadGachaSelect();
 
         renderCharacterList();
+        renderGachaList();
 
         alert("ガチャを作成しました");
 
@@ -495,6 +501,43 @@ const gachaName =
         card.appendChild(deleteButton);
 
         characterList.appendChild(card);
+
+    });
+
+}
+
+
+function renderGachaList(){
+
+    gachaList.innerHTML = "";
+
+    const gachas =
+        getGachas();
+
+    gachas.forEach(gacha=>{
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "character-card";
+
+        card.innerHTML = `
+
+            <div
+                style="
+                    font-size:22px;
+                    font-weight:bold;
+                    margin-bottom:16px;
+                ">
+
+                ${gacha.name}
+
+            </div>
+
+        `;
+
+        gachaList.appendChild(card);
 
     });
 
