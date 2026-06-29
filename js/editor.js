@@ -8,7 +8,9 @@ import {
     addGacha,
     addCharacter,
     getCharacters,
-    deleteCharacter
+    deleteCharacter,
+    setCurrentGacha,
+    getCurrentGacha
 } from "./storage.js";
 
 //==============================
@@ -84,6 +86,7 @@ saveGachaButton.addEventListener(
         gacha.name = name;
 
         addGacha(gacha);
+        setCurrentGacha(gacha.id);
 
         gachaName.value="";
 
@@ -184,6 +187,8 @@ function loadGachaSelect(){
 
     const gachas =
         getGachas();
+    const currentGacha =
+    getCurrentGacha();
 
     gachas.forEach(gacha=>{
 
@@ -195,6 +200,11 @@ function loadGachaSelect(){
 
         option.textContent =
             gacha.name;
+        if(gacha.id===currentGacha){
+
+    option.selected = true;
+
+}
 
         gachaSelect.appendChild(option);
 
