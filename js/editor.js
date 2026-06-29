@@ -393,6 +393,30 @@ const gachaName =
                         ${character.quote ?? ""}
 
                     </div>
+                    <div
+    style="
+        color:#888;
+        font-size:13px;
+        margin-top:8px;
+    ">
+
+    所属：
+    ${gachaName}
+
+</div>
+
+<div
+    style="
+        color:#555;
+        font-size:13px;
+        line-height:1.6;
+        margin-top:8px;
+        white-space:pre-wrap;
+    ">
+
+    ${character.description || ""}
+
+</div>
 
                 </div>
 
