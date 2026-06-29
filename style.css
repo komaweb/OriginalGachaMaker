@@ -1250,3 +1250,63 @@ Result Icon List
     transform:scale(.97);
 
 }
+
+/*==============================
+ホーム ガチャ一覧
+==============================*/
+
+#homeGachaList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.home-gacha-card{
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:white;
+
+    box-shadow:var(--shadow);
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.home-gacha-card:active{
+
+    transform:scale(.98);
+
+}
+
+.home-gacha-card img{
+
+    width:100%;
+
+    aspect-ratio:16/7;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.home-gacha-title{
+
+    padding:16px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
