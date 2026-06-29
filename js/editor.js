@@ -130,6 +130,11 @@ saveCharacterButton.addEventListener(
 
     ()=>{
 
+        alert("保存ボタン押された");
+
+        ...
+    ()=>{
+
         if(gachaSelect.value===""){
 
             alert("先にガチャを作成してください");
