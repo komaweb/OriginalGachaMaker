@@ -10,6 +10,7 @@ import {
     getCharacters,
     deleteCharacter,
     deleteGacha,
+    deleteCharactersByGacha,
     setCurrentGacha,
     getCurrentGacha
 } from "./storage.js";
