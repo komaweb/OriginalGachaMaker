@@ -245,6 +245,8 @@ button{
 
 .banner{
 
+    position:relative;
+
     width:100%;
 
     aspect-ratio:16 / 7;
@@ -271,6 +273,29 @@ button{
     font-weight:bold;
 
     margin:18px 0;
+
+}
+
+#homeBannerTitle{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:1.3rem;
+
+    font-weight:bold;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.5);
 
 }
 
