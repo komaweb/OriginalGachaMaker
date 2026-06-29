@@ -4,7 +4,13 @@ import {
 
     getGachas
 
-} from "./storage.js"
+} from "./storage.js";
+
+import {
+
+    showCollectionCharacter
+
+} from "./gacha.js";
 
 function renderCollection(){
 
@@ -68,6 +74,26 @@ function renderCollection(){
                 button.className =
                     "collection-icon";
 
+button.addEventListener(
+
+    "click",
+
+    ()=>{
+
+        if(character.obtained){
+
+            showCollectionCharacter(character);
+
+        }else{
+
+            alert("まだ出会っていません。");
+
+        }
+
+    }
+
+);
+                
                 button.innerHTML = `
 
                     <img src="${
