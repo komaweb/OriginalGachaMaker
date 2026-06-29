@@ -126,36 +126,8 @@ function renderResultIcons(selectedCharacter){
     });
 
 }
-let latestResults = [];
 
-function showResult(character){
 
-    document.getElementById("resultImage").src =
-        character.detailImage || character.image;
-
-    document.getElementById("resultName").textContent =
-        character.name;
-
-    document.getElementById("resultQuote").textContent =
-        character.quote;
-
-    document.getElementById("resultDescription").textContent =
-        character.description;
-
-    document.getElementById("resultStars").textContent =
-        "★".repeat(character.rarity);
-    document.getElementById("resultImage").src =
-    character.detailImage || character.image;
-
-document.getElementById("resultDescription").textContent =
-    character.description || "";
-
-    document.getElementById("resultCard").style.display =
-        "flex";
-
-    renderResultIcons(character);
-
-}
 
 window.addEventListener("DOMContentLoaded",()=>{
 
