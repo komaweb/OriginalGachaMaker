@@ -1,6 +1,7 @@
 import {
     getGachas,
-    getCurrentGacha
+    getCurrentGacha,
+    setCurrentGacha
 } from "./storage.js";
 
 const buttons = document.querySelectorAll(".tab-button");
@@ -26,7 +27,7 @@ buttons.forEach(button => {
 });
 
 console.log("Original Gacha Maker 起動");
-updateHomeBanner();
+renderHomeGachas();
 
 function updateHomeBanner(){
 
