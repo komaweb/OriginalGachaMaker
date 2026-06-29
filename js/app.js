@@ -1,9 +1,18 @@
 import {
+
     getGachas,
-    getCharacters,
+
     getCurrentGacha,
+
     setCurrentGacha
+
 } from "./storage.js";
+
+import {
+
+    renderCollection
+
+} from "./collection.js";
 
 const buttons = document.querySelectorAll(".tab-button");
 const pages = document.querySelectorAll(".page");
@@ -22,6 +31,11 @@ buttons.forEach(button => {
         document
             .getElementById(target)
             .classList.add("active");
+        if(target==="collection"){
+
+    renderCollection();
+
+}
         if(target==="home"){
 
     renderHomeGachas();
