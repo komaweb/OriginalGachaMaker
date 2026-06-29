@@ -208,3 +208,22 @@ export function setCurrentGacha(id){
     );
 
 }
+
+//======================================
+// ガチャ削除時に所属キャラも削除
+//======================================
+
+export function deleteCharactersByGacha(gachaId){
+
+    const characters =
+        getCharacters().filter(
+
+            character=>
+
+                character.gachaId!==gachaId
+
+        );
+
+    saveCharacters(characters);
+
+}
