@@ -1,5 +1,6 @@
 import {
     getGachas,
+    getCharacters,
     getCurrentGacha,
     setCurrentGacha
 } from "./storage.js";
@@ -90,8 +91,25 @@ function renderHomeGachas(){
 
     gachas.forEach(gacha=>{
 
+        const count =
+
+    getCharacters().filter(
+
+        character=>
+
+            character.gachaId===gacha.id
+
+    ).length;
+
+const selected =
+
+    gacha.id===getCurrentGacha();
         const card =
             document.createElement("div");
+        const characterCount =
+    gacha.characters
+        ? gacha.characters.length
+        : getGachas;
 
         card.className =
             "home-gacha-card";
@@ -107,13 +125,44 @@ function renderHomeGachas(){
                 : ""
             }
 
-            <div
-                class="home-gacha-title">
+          <div class="home-gacha-title">
 
-                ${gacha.name}
+    ${gacha.name}
 
-            </div>
+    <div
+        style="
+            margin-top:8px;
+            font-size:14px;
+            color:#666;
+            font-weight:normal;
+        ">
 
+        全${count}種類
+
+    </div>
+
+    ${
+        selected
+        ? `
+        <div
+            style="
+                margin-top:12px;
+                display:inline-block;
+                padding:6px 14px;
+                border-radius:999px;
+                background:#5b7cff;
+                color:white;
+                font-size:13px;
+            ">
+
+            選択中
+
+        </div>
+        `
+        : ""
+    }
+
+</div>
         `;
 
        card.addEventListener(
