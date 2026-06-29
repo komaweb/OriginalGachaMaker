@@ -28,6 +28,55 @@ buttons.forEach(button => {
 
 console.log("Original Gacha Maker 起動");
 renderHomeGachas();
+function updateGachaBanner(){
+
+    const image =
+        document.getElementById("gachaBannerImage");
+
+    const title =
+        document.getElementById("gachaBannerTitle");
+
+    const currentId =
+        getCurrentGacha();
+
+    const gacha =
+        getGachas().find(
+
+            g=>g.id===currentId
+
+        );
+
+    if(!gacha){
+
+        return;
+
+    }
+
+    title.textContent =
+        gacha.name;
+
+    if(gacha.banner){
+
+        image.src =
+            gacha.banner;
+
+        image.style.display =
+            "block";
+
+        title.style.display =
+            "none";
+
+    }else{
+
+        image.style.display =
+            "none";
+
+        title.style.display =
+            "flex";
+
+    }
+
+}
 
 function renderHomeGachas(){
 
@@ -67,24 +116,28 @@ function renderHomeGachas(){
 
         `;
 
-        card.addEventListener(
+       card.addEventListener(
 
-            "click",
+    "click",
 
-            ()=>{
+    ()=>{
 
-                setCurrentGacha(gacha.id);
+        setCurrentGacha(gacha.id);
 
-                document
-                    .querySelector('[data-page="gacha"]')
-                    .click();
+        updateGachaBanner();
 
-            }
+        document
+            .querySelector('[data-page="gacha"]')
+            .click();
 
-        );
+    }
+
+);
 
         homeList.appendChild(card);
 
     });
 
 }
+
+updateGachaBanner();
