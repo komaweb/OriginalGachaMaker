@@ -9,6 +9,7 @@ import {
     addCharacter,
     getCharacters,
     deleteCharacter,
+    deleteGacha,
     setCurrentGacha,
     getCurrentGacha
 } from "./storage.js";
@@ -536,6 +537,42 @@ function renderGachaList(){
             </div>
 
         `;
+        const deleteButton =
+    document.createElement("button");
+
+deleteButton.className =
+    "danger-button";
+
+deleteButton.textContent =
+    "シリーズを削除";
+
+deleteButton.addEventListener(
+
+    "click",
+
+    ()=>{
+
+        if(!confirm(
+
+            `「${gacha.name}」を削除しますか？`
+
+        )){
+
+            return;
+
+        }
+
+        deleteGacha(gacha.id);
+
+        renderGachaList();
+
+        loadGachaSelect();
+
+    }
+
+);
+
+card.appendChild(deleteButton);
 
         gachaList.appendChild(card);
 
