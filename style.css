@@ -881,6 +881,8 @@ Gacha
 
     grid-template-columns:repeat(5,56px);
 
+    grid-auto-rows:56px;
+
     gap:10px;
 
     justify-content:center;
@@ -888,7 +890,6 @@ Gacha
     align-content:center;
 
 }
-
 
 #presentGrid.single{
 
