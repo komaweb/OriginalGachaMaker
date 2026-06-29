@@ -23,7 +23,6 @@ export async function poyon(element){
 
     element.classList.remove("poyon");
 
-    // 再度アニメーションできるようにする
     void element.offsetWidth;
 
     element.classList.add("poyon");
@@ -34,7 +33,7 @@ export async function poyon(element){
 
 }
 
-export async function poyonOpen(element,callback){
+export async function poyonOpen(element, callback){
 
     await poyon(element);
 
@@ -43,5 +42,64 @@ export async function poyonOpen(element,callback){
         callback();
 
     }
+
+}
+
+//======================================
+// ガチャ演出
+//======================================
+
+export async function showPresentAnimation(results){
+
+    const overlay = document.getElementById("gachaOverlay");
+
+    const boxes = document.querySelectorAll(".present-box");
+
+    const resultCard = document.getElementById("resultCard");
+
+    overlay.classList.remove("hidden");
+
+    resultCard.style.display = "none";
+
+    // 箱をリセット
+    boxes.forEach(box=>{
+
+        box.classList.remove("open");
+
+        box.innerHTML="🎁";
+
+    });
+
+    // 1個ずつ開く
+    for(let i=0;i<boxes.length;i++){
+
+        const box=boxes[i];
+
+        const character=results[i];
+
+        await wait(180);
+
+        await poyon(box);
+
+        box.classList.add("open");
+
+        box.innerHTML=`
+            <img src="${character.image}">
+        `;
+
+    }
+
+    await wait(800);
+
+    return true;
+
+}
+
+export function closeAnimation(){
+
+    document
+        .getElementById("gachaOverlay")
+        .classList
+        .add("hidden");
 
 }
