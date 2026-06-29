@@ -82,6 +82,41 @@ await showPresentAnimation(results);
 showResult(results[9]);
 
 }
+function renderResultIcons(selectedCharacter){
+
+    const iconList =
+        document.getElementById("resultIconList");
+
+    iconList.innerHTML = "";
+
+    latestResults.forEach(character=>{
+
+        const button =
+            document.createElement("button");
+
+        button.className = "result-icon";
+
+        if(character === selectedCharacter){
+
+            button.classList.add("active");
+
+        }
+
+        button.innerHTML = `
+            <img src="${character.image}">
+        `;
+
+        button.addEventListener("click",()=>{
+
+            showResult(character);
+
+        });
+
+        iconList.appendChild(button);
+
+    });
+
+}
 
 let latestResults = [];
 
