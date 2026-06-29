@@ -1133,3 +1133,15 @@ Gacha
     color:#444;
 
 }
+
+
+
+#resultContent{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding-right:4px;
+
+}
