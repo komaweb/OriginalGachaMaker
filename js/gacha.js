@@ -95,9 +95,10 @@ function showResult(character){
     document.getElementById("resultStars").textContent=
         "★".repeat(character.stars);
 
-    document.getElementById("resultCard").style.display=
-        "block";
+const resultCard = document.getElementById("resultCard");
 
+resultCard.style.display = "flex";
+    
 }
 
 window.addEventListener("DOMContentLoaded",()=>{
