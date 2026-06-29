@@ -2,6 +2,8 @@ import {
 
     getGachas,
 
+    getCharacters,
+
     getCurrentGacha,
 
     setCurrentGacha
@@ -103,11 +105,17 @@ function renderHomeGachas(){
     const homeList =
         document.getElementById("homeGachaList");
 
+    if(!homeList){
+
+        return;
+
+    }
+
     homeList.innerHTML = "";
 
     const gachas =
         getGachas();
-
+    
     gachas.forEach(gacha=>{
 
         const count =
@@ -125,10 +133,6 @@ const selected =
     gacha.id===getCurrentGacha();
         const card =
             document.createElement("div");
-        const characterCount =
-    gacha.characters
-        ? gacha.characters.length
-        : getGachas;
 
         card.className =
             "home-gacha-card";
