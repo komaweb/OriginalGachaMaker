@@ -952,11 +952,11 @@ Gacha
 
     display:none;
 
-    margin-top:36px;
-
     width:100%;
 
-    max-width:360px;
+    max-width:420px;
+
+    height:85vh;
 
     background:white;
 
@@ -964,10 +964,11 @@ Gacha
 
     padding:24px;
 
-    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
 
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.35);
+    display:flex;
+
+    flex-direction:column;
 
 }
 
