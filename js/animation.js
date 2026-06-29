@@ -55,6 +55,19 @@ export async function showPresentAnimation(results){
 
     const boxes = document.querySelectorAll(".present-box");
 
+    const grid =
+    document.getElementById("presentGrid");
+
+if(results.length===1){
+
+    grid.classList.add("single");
+
+}else{
+
+    grid.classList.remove("single");
+
+}
+
     boxes.forEach(box=>{
 
     box.style.display = "none";
