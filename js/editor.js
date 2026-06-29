@@ -131,6 +131,7 @@ saveCharacterButton.addEventListener(
     ()=>{
 
         alert("保存ボタン押された");
+        alert("ガチャ確認OK");
 
         
 
@@ -141,6 +142,7 @@ saveCharacterButton.addEventListener(
             return;
 
         }
+        alert("ガチャ選択OK");
 
         const name =
             characterName.value.trim();
@@ -155,6 +157,7 @@ saveCharacterButton.addEventListener(
 
         const character =
             createCharacter();
+        alert("createCharacter OK");
 
         character.gachaId =
             gachaSelect.value;
@@ -176,8 +179,10 @@ saveCharacterButton.addEventListener(
 
 character.detailImage =
     selectedDetailImage;
-        
+
+        alert("保存直前");
         addCharacter(character);
+        alert("保存完了");
 
         characterName.value = "";
         characterRarity.value = "1";
