@@ -1211,3 +1211,43 @@ Result Icon List
     box-shadow:0 0 12px rgba(91,124,255,.35);
 
 }
+
+
+
+.danger-button{
+
+    width:100%;
+
+    margin-top:14px;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#ef4444;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.15s;
+
+}
+
+.danger-button:hover{
+
+    filter:brightness(.95);
+
+}
+
+.danger-button:active{
+
+    transform:scale(.97);
+
+}
