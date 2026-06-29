@@ -8,50 +8,26 @@ import {
     closeAnimation
 } from "./animation.js";
 
-const dummyCharacters = [
+import {
+    getCharacters
+} from "./storage.js";
 
-    {
-        name:"ねこ",
-        image:"https://placehold.co/256x256/87CEEB/ffffff?text=1",
-        stars:1,
-        quote:"よろしく！"
-    },
-
-    {
-        name:"いぬ",
-        image:"https://placehold.co/256x256/F4A460/ffffff?text=2",
-        stars:2,
-        quote:"わん！"
-    },
-
-    {
-        name:"うさぎ",
-        image:"https://placehold.co/256x256/FFB6C1/ffffff?text=3",
-        stars:3,
-        quote:"ぴょん！"
-    },
-
-    {
-        name:"きつね",
-        image:"https://placehold.co/256x256/F08080/ffffff?text=4",
-        stars:4,
-        quote:"こん！"
-    },
-
-    {
-        name:"ドラゴン",
-        image:"https://placehold.co/256x256/FFD700/ffffff?text=5",
-        stars:5,
-        quote:"レア！"
-    }
-
-];
 
 function randomCharacter(){
 
-    return dummyCharacters[
+    const characters = getCharacters();
+
+    if(characters.length===0){
+
+        alert("キャラクターが登録されていません。");
+
+        return null;
+
+    }
+
+    return characters[
         Math.floor(
-            Math.random()*dummyCharacters.length
+            Math.random()*characters.length
         )
     ];
 
@@ -59,11 +35,17 @@ function randomCharacter(){
 
 function createTenResult(){
 
-    const result=[];
+    const result = [];
 
     for(let i=0;i<10;i++){
 
-        result.push(randomCharacter());
+        const character = randomCharacter();
+
+        if(character){
+
+            result.push(character);
+
+        }
 
     }
 
@@ -162,6 +144,11 @@ function showResult(character){
 
     document.getElementById("resultStars").textContent =
         "★".repeat(character.rarity);
+    document.getElementById("resultImage").src =
+    character.detailImage || character.image;
+
+document.getElementById("resultDescription").textContent =
+    character.description || "";
 
     document.getElementById("resultCard").style.display =
         "flex";
