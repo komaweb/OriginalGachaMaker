@@ -227,3 +227,13 @@ export function deleteCharactersByGacha(gachaId){
     saveCharacters(characters);
 
 }
+
+
+
+export function saveCharacter(character){
+
+    const characters =
+        getCharacters();
+
+    const index =
+        characters.findIndex(
