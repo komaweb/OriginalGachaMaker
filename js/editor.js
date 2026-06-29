@@ -334,96 +334,87 @@ const gachaName =
         
         card.innerHTML = `
 
-            <div
-                style="
-                    display:flex;
-                    gap:14px;
-                    align-items:flex-start;
-                ">
+    ${
+        character.image
+        ? `
+        <img
+            src="${character.image}"
+            style="
+                display:block;
+                width:120px;
+                height:120px;
+                object-fit:cover;
+                border-radius:18px;
+                margin:0 auto 18px;
+            ">
+        `
+        : ""
+    }
 
-                ${
-                    character.image
-                    ? `
-                    <img
-                        src="${character.image}"
-                        style="
-                            width:72px;
-                            height:72px;
-                            object-fit:cover;
-                            border-radius:12px;
-                            flex-shrink:0;
-                        ">
-                    `
-                    : ""
-                }
+    <div
+        style="
+            text-align:center;
+            font-weight:bold;
+            font-size:30px;
+        ">
 
-                <div
-                    style="
-                        flex:1;
-                        min-width:0;
-                    ">
+        ${character.name}
 
-                    <div
-                        style="
-                            font-weight:bold;
-                            font-size:18px;
-                            margin-bottom:6px;
-                        ">
+    </div>
 
-                        ${character.name}
+    <div
+        style="
+            text-align:center;
+            color:#f7b500;
+            font-size:24px;
+            margin-top:8px;
+        ">
 
-                    </div>
+        ${stars}
 
-                    <div
-                        style="
-                            color:#f7b500;
-                            margin-bottom:6px;
-                        ">
+    </div>
 
-                        ${stars}
+    <div
+        style="
+            margin:18px 0;
+            padding:14px;
+            border-radius:14px;
+            background:#f7f8fb;
+            text-align:center;
+            font-style:italic;
+            color:#555;
+            line-height:1.6;
+        ">
 
-                    </div>
+        ${character.quote ?? ""}
 
-                    <div
-                        style="
-                            color:#666;
-                            font-size:14px;
-                        ">
+    </div>
 
-                        ${character.quote ?? ""}
+    <div
+        style="
+            text-align:center;
+            color:#888;
+            font-size:14px;
+        ">
 
-                    </div>
-                    <div
-    style="
-        color:#888;
-        font-size:13px;
-        margin-top:8px;
-    ">
+        所属：${gachaName}
 
-    所属：
-    ${gachaName}
+    </div>
 
-</div>
+    <div
+        style="
+            margin-top:18px;
+            line-height:1.7;
+            white-space:pre-wrap;
+            color:#444;
+        ">
 
-<div
-    style="
-        color:#555;
-        font-size:13px;
-        line-height:1.6;
-        margin-top:8px;
-        white-space:pre-wrap;
-    ">
+        ${character.description || ""}
 
-    ${character.description || ""}
+    </div>
 
-</div>
-
-                </div>
-
-            </div>
-
-        `;
-
+`;
+        
         const deleteButton =
             document.createElement("button");
 
