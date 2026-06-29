@@ -165,13 +165,15 @@ const selected =
 </div>
         `;
 
-       card.addEventListener(
+  card.addEventListener(
 
     "click",
 
     ()=>{
 
         setCurrentGacha(gacha.id);
+
+        renderHomeGachas();
 
         updateGachaBanner();
 
