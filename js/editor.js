@@ -1,4 +1,9 @@
 import {
+    createGacha,
+    createCharacter
+} from "./models.js";
+
+import {
     getGachas,
     addGacha,
     addCharacter,
