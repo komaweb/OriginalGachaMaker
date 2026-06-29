@@ -311,71 +311,108 @@ function renderCharacterList(){
             "★".repeat(character.rarity);
 
         card.innerHTML = `
-            <div style="display:flex;gap:12px;align-items:center;">
+
+            <div
+                style="
+                    display:flex;
+                    gap:14px;
+                    align-items:flex-start;
+                ">
 
                 ${
                     character.image
-                    ? `<img src="${character.image}"
+                    ? `
+                    <img
+                        src="${character.image}"
                         style="
-                        width:72px;
-                        height:72px;
-                        object-fit:cover;
-                        border-radius:12px;">`
+                            width:72px;
+                            height:72px;
+                            object-fit:cover;
+                            border-radius:12px;
+                            flex-shrink:0;
+                        ">
+                    `
                     : ""
                 }
 
-                <div>
+                <div
+                    style="
+                        flex:1;
+                        min-width:0;
+                    ">
 
-                    <div style="font-size:20px;">
-                        ${stars}
-                    </div>
+                    <div
+                        style="
+                            font-weight:bold;
+                            font-size:18px;
+                            margin-bottom:6px;
+                        ">
 
-                    <div style="font-weight:bold;">
                         ${character.name}
+
                     </div>
 
-                    <div style="color:#666;font-size:14px;">
+                    <div
+                        style="
+                            color:#f7b500;
+                            margin-bottom:6px;
+                        ">
+
+                        ${stars}
+
+                    </div>
+
+                    <div
+                        style="
+                            color:#666;
+                            font-size:14px;
+                        ">
+
                         ${character.quote ?? ""}
+
                     </div>
 
                 </div>
 
             </div>
+
         `;
-const deleteButton =
-    document.createElement("button");
 
-deleteButton.className =
-    "danger-button";
+        const deleteButton =
+            document.createElement("button");
 
-deleteButton.textContent =
-    "削除";
+        deleteButton.className =
+            "danger-button";
 
-deleteButton.addEventListener(
+        deleteButton.textContent =
+            "削除";
 
-    "click",
+        deleteButton.addEventListener(
 
-    ()=>{
+            "click",
 
-        if(!confirm(
+            ()=>{
 
-            `「${character.name}」を削除しますか？`
+                if(!confirm(
 
-        )){
+                    `「${character.name}」を削除しますか？`
 
-            return;
+                )){
 
-        }
+                    return;
 
-        deleteCharacter(character.id);
+                }
 
-        renderCharacterList();
+                deleteCharacter(character.id);
 
-    }
+                renderCharacterList();
 
-);
+            }
 
-card.appendChild(deleteButton);
+        );
+
+        card.appendChild(deleteButton);
+
         characterList.appendChild(card);
 
     });
