@@ -1327,3 +1327,60 @@ Result Icon List
     text-align:center;
 
 }
+
+
+/*==============================
+Collection
+==============================*/
+
+.collection-series{
+
+    margin-bottom:36px;
+
+}
+
+.collection-title{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-bottom:16px;
+
+}
+
+.collection-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:12px;
+
+}
+
+.collection-icon{
+
+    aspect-ratio:1;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    background:#eee;
+
+}
+
+.collection-icon img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
