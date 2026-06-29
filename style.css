@@ -889,6 +889,13 @@ Gacha
 
 }
 
+
+#presentGrid.single{
+
+    grid-template-columns:72px;
+
+}
+
 .present-box{
 
     aspect-ratio:1;
