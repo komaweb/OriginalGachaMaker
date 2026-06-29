@@ -72,6 +72,28 @@ function createTenResult(){
     return result;
 
 }
+async function startSingleGacha(){
+
+    const character =
+        randomCharacter();
+
+    if(!character){
+
+        return;
+
+    }
+
+    latestResults = [character];
+
+    await showPresentAnimation(
+
+        latestResults
+
+    );
+
+    showResult(character);
+
+}
 
 async function startTenGacha(){
 
@@ -151,6 +173,20 @@ function renderResultIcons(selectedCharacter){
 
 
 window.addEventListener("DOMContentLoaded",()=>{
+    const singleButton =
+    document.getElementById("singleGachaButton");
+
+if(singleButton){
+
+    singleButton.addEventListener(
+
+        "click",
+
+        startSingleGacha
+
+    );
+
+}
 
     const tenButton=document.getElementById("tenGachaButton");
 
