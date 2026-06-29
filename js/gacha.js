@@ -73,15 +73,42 @@ function createTenResult(){
 
 async function startTenGacha(){
 
-const results=createTenResult();
+    const results = createTenResult();
 
-latestResults = results;
+    latestResults = results;
 
-await showPresentAnimation(results);
+    await showPresentAnimation(results);
 
-showResult(results[9]);
+    showResult(results[9]);
 
 }
+
+let latestResults = [];
+
+function showResult(character){
+
+    document.getElementById("resultImage").src =
+        character.detailImage || character.image;
+
+    document.getElementById("resultName").textContent =
+        character.name;
+
+    document.getElementById("resultQuote").textContent =
+        character.quote;
+
+    document.getElementById("resultDescription").textContent =
+        character.description;
+
+    document.getElementById("resultStars").textContent =
+        "★".repeat(character.rarity);
+
+    document.getElementById("resultCard").style.display =
+        "flex";
+
+    renderResultIcons(character);
+
+}
+
 function renderResultIcons(selectedCharacter){
 
     const iconList =
@@ -117,7 +144,6 @@ function renderResultIcons(selectedCharacter){
     });
 
 }
-
 let latestResults = [];
 
 function showResult(character){
