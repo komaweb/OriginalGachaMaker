@@ -2,21 +2,25 @@
 <html lang="ja">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Original Gacha Maker</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
 
 <body>
 
-<div id="app">
+<div class="app">
 
-    <!--==============================
+    <!--==========================
         Header
-    ==============================-->
+    ===========================-->
 
     <header class="header">
 
@@ -25,42 +29,47 @@
     </header>
 
 
-    <!--==============================
-        Tab
-    ==============================-->
+    <!--==========================
+        Tabs
+    ===========================-->
 
     <nav class="tab-bar">
 
-        <button class="tab-button active"
-                data-page="home">
+        <button
+            class="tab active"
+            data-page="home">
 
             ホーム
 
         </button>
 
-        <button class="tab-button"
-                data-page="gacha">
+        <button
+            class="tab"
+            data-page="gacha">
 
             ガチャ
 
         </button>
 
-        <button class="tab-button"
-                data-page="collection">
+        <button
+            class="tab"
+            data-page="collection">
 
             図鑑
 
         </button>
 
-        <button class="tab-button"
-                data-page="editor">
+        <button
+            class="tab"
+            data-page="editor">
 
             編集
 
         </button>
 
-        <button class="tab-button"
-                data-page="settings">
+        <button
+            class="tab"
+            data-page="settings">
 
             設定
 
@@ -70,26 +79,25 @@
 
 
 
-    <!--==============================
-        Main
-    ==============================-->
-
     <main>
 
         <!--==========================
             Home
         ===========================-->
 
-        <section id="home"
-                 class="page active">
+        <section
+            id="home"
+            class="page active">
 
             <div class="panel hero">
 
                 <h2>Original Gacha Maker</h2>
 
                 <p>
+
                     オリジナルキャラクターで遊べる
                     ガチャメーカー
+
                 </p>
 
             </div>
@@ -99,83 +107,108 @@
 
                 <h3>開催中のガチャ</h3>
 
-                <div class="banner">
+                <div id="homeBanner"
+                     class="banner">
 
                     ガチャバナー
 
                 </div>
-                
 
-        <!--==========================
+
+                <div class="button-group">
+
+                    <button
+                        id="homeSingleButton"
+                        class="primary-button">
+
+                        1連ガチャ
+
+                    </button>
+
+                    <button
+                        id="homeTenButton"
+                        class="primary-button">
+
+                        10連ガチャ
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+                <!--==========================
             Gacha
         ===========================-->
 
-   <section id="gacha"
-         class="page">
+        <section
+            id="gacha"
+            class="page">
 
-    <div class="panel">
+            <div class="panel">
 
-        <h2>ガチャ</h2>
-        
-<div
-    id="gachaGrid"
-    class="gacha-area">
+                <h2>ガチャ</h2>
 
-            <div class="gacha-slot"><img></div>
-            <div class="gacha-slot"><img></div>
-            <div class="gacha-slot"><img></div>
-            <div class="gacha-slot"><img></div>
-            <div class="gacha-slot"><img></div>
+                <div
+                    id="gachaGrid"
+                    class="gacha-area">
 
-            <div class="gacha-slot"><img></div>
-            <div class="gacha-slot"><img></div>
-            <div class="gacha-slot"><img></div>
-            <div class="gacha-slot"><img></div>
-            <div class="gacha-slot"><img></div>
+                    <div class="gacha-slot"><img></div>
+                    <div class="gacha-slot"><img></div>
+                    <div class="gacha-slot"><img></div>
+                    <div class="gacha-slot"><img></div>
+                    <div class="gacha-slot"><img></div>
 
-        </div>
+                    <div class="gacha-slot"><img></div>
+                    <div class="gacha-slot"><img></div>
+                    <div class="gacha-slot"><img></div>
+                    <div class="gacha-slot"><img></div>
+                    <div class="gacha-slot"><img></div>
 
-        <div class="button-group">
+                </div>
 
-            <button
-                id="singleGachaButton"
-                class="primary-button">
+                <div class="button-group">
 
-                1連ガチャ
+                    <button
+                        id="singleGachaButton"
+                        class="primary-button">
 
-            </button>
+                        1連ガチャ
 
-            <button
-                id="tenGachaButton"
-                class="primary-button">
+                    </button>
 
-                10連ガチャ
+                    <button
+                        id="tenGachaButton"
+                        class="primary-button">
 
-            </button>
+                        10連ガチャ
 
-        </div>
+                    </button>
 
-    </div>
+                </div>
 
-</section>
+            </div>
+
+        </section>
+
 
 
         <!--==========================
             Collection
         ===========================-->
 
-        <section id="collection"
-                 class="page">
+        <section
+            id="collection"
+            class="page">
 
             <div class="panel">
 
                 <h2>図鑑</h2>
 
-                <p>
+                <div id="collectionGrid">
 
-                    キャラクター一覧
-
-                </p>
+                </div>
 
             </div>
 
@@ -183,203 +216,271 @@
 
 
 
-     <!--==========================
-    Editor
-===========================-->
+        <!--==========================
+            Editor
+        ===========================-->
 
-<section id="editor"
-         class="page">
+        <section
+            id="editor"
+            class="page">
 
-    <!-- ガチャシリーズ -->
+            <!-- ガチャ -->
 
-    <div class="panel">
+            <div class="panel">
 
-        <h2>ガチャシリーズ</h2>
+                <h2>ガチャ</h2>
 
-        <label class="label">
+                <label class="label">
 
-            シリーズ名
+                    ガチャ名
 
-        </label>
+                </label>
 
-        <input
-            id="seriesName"
-            class="text-input"
-            type="text"
-            placeholder="例：ゆるどうぶつ">
+                <input
+                    id="seriesName"
+                    class="text-input"
+                    type="text"
+                    placeholder="例：ゆるどうぶつ">
 
-        <label class="label">
+                <label class="label">
 
-            バナー画像
+                    バナー画像
 
-        </label>
+                </label>
 
-        <input
-            id="seriesBanner"
-            type="file"
-            accept="image/*">
+                <input
+                    id="seriesBanner"
+                    type="file"
+                    accept="image/*">
 
+                <button
+                    id="saveSeries"
+                    class="primary-button full">
 
-<img
-    id="characterPreview"
-    style="
-        width:140px;
-        display:none;
-        margin-top:12px;
-        border-radius:12px;
-        border:1px solid #ccc;
-    ">        
+                    ガチャを追加
 
+                </button>
 
-
-        <button
-            id="saveSeries"
-            class="primary-button full">
-
-            シリーズを保存
-
-        </button>
-
-    </div>
+            </div>
 
 
 
-    <div class="panel">
+            <!-- キャラクター -->
 
-    <h2>キャラクター</h2>
+            <div class="panel">
 
-    <label class="label">
-        所属ガチャ
-    </label>
+                <h2>キャラクター</h2>
 
-    <select
-        id="characterGacha"
-        class="text-input">
-    </select>
+                <label class="label">
 
-    <label class="label">
-        名前
-    </label>
+                    所属ガチャ
 
-    <input
-        id="characterName"
-        class="text-input"
-        type="text">
+                </label>
 
-    <label class="label">
-        レアリティ
-    </label>
+                <select
+                    id="characterGacha"
+                    class="text-input">
 
-    <select
-        id="characterRarity"
-        class="text-input">
+                </select>
 
-        <option value="1">★1</option>
-        <option value="2">★2</option>
-        <option value="3">★3</option>
-        <option value="4">★4</option>
-        <option value="5">★5</option>
-        <option value="6">★6</option>
+                <label class="label">
 
-    </select>
+                    名前
 
-    <label class="label">
-        セリフ
-    </label>
+                </label>
 
-    <input
-        id="characterQuote"
-        class="text-input"
-        type="text">
+                <input
+                    id="characterName"
+                    class="text-input"
+                    type="text">
 
-<label class="label">
-    キャラクター画像
-</label>
+                <label class="label">
 
-<input
-    id="characterImage"
-    type="file"
-    accept="image/*">
-        
-    <label class="label">
-        説明
-    </label>
+                    レアリティ
 
-    <textarea
-        id="characterDescription"
-        class="text-input"
-        rows="4"></textarea>
+                </label>
 
-    <button
-        id="saveCharacter"
-        class="primary-button full">
+                <select
+                    id="characterRarity"
+                    class="text-input">
 
-        キャラクターを保存
+                    <option value="1">★</option>
+                    <option value="2">★★</option>
+                    <option value="3">★★★</option>
+                    <option value="4">★★★★</option>
+                    <option value="5">★★★★★</option>
 
-    </button>
+                </select>
 
+                <label class="label">
 
-<hr>
+                    キャラクター画像
 
-<h2>キャラクター一覧</h2>
+                </label>
 
-<div id="characterList"></div>
-        
+                <input
+                    id="characterImage"
+                    type="file"
+                    accept="image/*">
 
-</div>
-</section>
+                <img
+                    id="imagePreview"
+                    class="preview-image">
 
+                <label class="label">
 
+                    アイコン画像
+
+                </label>
+
+                <input
+                    id="characterIcon"
+                    type="file"
+                    accept="image/*">
+
+                <img
+                    id="iconPreview"
+                    class="preview-image">
+
+                <label class="label">
+
+                    ガチャ演出セリフ
+
+                </label>
+
+                <input
+                    id="characterQuote"
+                    class="text-input"
+                    type="text">
+
+                <label class="label">
+
+                    説明
+
+                </label>
+
+                <textarea
+                    id="characterDescription"
+                    class="text-area"
+                    rows="5"></textarea>
+
+                <button
+                    id="saveCharacter"
+                    class="primary-button full">
+
+                    キャラクターを保存
+
+                </button>
+
+                <hr>
+
+                <h3>登録済みキャラクター</h3>
+
+                <div id="characterList"
+                     class="character-list">
+
+                </div>
+
+            </div>
+
+        </section>
         <!--==========================
             Settings
         ===========================-->
 
-        <section id="settings"
-                 class="page">
+        <section
+            id="settings"
+            class="page">
 
             <div class="panel">
 
                 <h2>設定</h2>
 
-                <p>
+                <button
+                    id="exportButton"
+                    class="primary-button full">
 
-                    データの保存・読み込み
+                    データを書き出す
 
-                </p>
+                </button>
+
+                <button
+                    id="importButton"
+                    class="primary-button full">
+
+                    データを読み込む
+
+                </button>
+
+                <input
+                    id="importFile"
+                    type="file"
+                    accept=".json"
+                    hidden>
+
+                <button
+                    id="resetButton"
+                    class="primary-button full">
+
+                    全データ削除
+
+                </button>
 
             </div>
 
         </section>
 
-<!--==============================
+    </main>
+
+</div>
+
+
+<!--==========================
     ガチャ結果
-==============================-->
+===========================-->
 
-<div id="gachaOverlay">
+<div
+    id="resultModal"
+    class="result-modal hidden">
 
-    <div id="resultCard">
+    <div class="result-card">
+
+        <img
+            id="resultFrame"
+            class="result-frame">
 
         <img
             id="resultImage"
-            src="">
+            class="result-image">
 
-        <div id="resultStars"></div>
+        <div
+            id="resultStars"
+            class="result-stars">
 
-        <div id="resultName"></div>
+        </div>
 
-        <div id="resultQuote"></div>
+        <h2 id="resultName">
+
+        </h2>
+
+        <p id="resultQuote">
+
+        </p>
+
+        <button
+            id="closeResultButton"
+            class="primary-button">
+
+            OK
+
+        </button>
 
     </div>
 
 </div>
 
-        
-    </main>
-
-</div>
 
 <script type="module" src="script.js"></script>
 
 </body>
-
 </html>
