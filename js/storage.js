@@ -29,16 +29,25 @@ function load(key){
 
 function save(key,data){
 
-    localStorage.setItem(
+    try{
 
-        key,
+        localStorage.setItem(
 
-        JSON.stringify(data)
+            key,
 
-    );
+            JSON.stringify(data)
+
+        );
+
+    }catch(error){
+
+        alert(error.name);
+
+        console.error(error);
+
+    }
 
 }
-
 
 //======================================
 // ガチャ
