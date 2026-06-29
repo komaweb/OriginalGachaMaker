@@ -22,6 +22,8 @@ const saveGachaButton =
 
 const gachaName =
     document.getElementById("seriesName");
+const seriesBanner =
+    document.getElementById("seriesBanner");
 
 const gachaSelect =
     document.getElementById("characterGacha");
@@ -51,6 +53,7 @@ const characterList =
 
 let selectedImage = "";
 let selectedDetailImage = "";
+let selectedBanner = "";
 
 //==============================
 // 初期化
@@ -87,6 +90,8 @@ saveGachaButton.addEventListener(
 
         addGacha(gacha);
         setCurrentGacha(gacha.id);
+        gacha.banner =
+    selectedBanner;
 
         gachaName.value="";
 
