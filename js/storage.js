@@ -4,6 +4,8 @@
 //======================================
 
 const GACHA_KEY = "ogm_gachas";
+const CURRENT_GACHA_KEY =
+    "ogm_current_gacha";
 const CHARACTER_KEY = "ogm_characters";
 
 
