@@ -237,3 +237,17 @@ export function saveCharacter(character){
 
     const index =
         characters.findIndex(
+
+            c=>c.id===character.id
+
+        );
+
+    if(index!==-1){
+
+        characters[index]=character;
+
+        saveCharacters(characters);
+
+    }
+
+}
